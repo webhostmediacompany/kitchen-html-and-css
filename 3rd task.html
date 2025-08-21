@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+
+        }
+
+        /* Main container */
+        .menu-container {
+            width: 100%;
+            max-width: 380px;
+            height: 68vh;
+            max-height: 80vh;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #f5f5f5;
+            /* Light text */
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 12px;            
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            background-color: #59442f;
+            border-bottom: 1px dashed #725e46;
+margin-top: 25px  #59442f;
+
+            /* Secondary BG */
+
+        }
+
+        header .icons-left {
+            display: flex;
+            gap: 24px;
+            font-size: 1.4rem;
+            color: #372614;
+
+        }
+
+        header .icons-left .fa-utensils {
+            color: #dc6277;
+            /* Accent text */
+
+        }
+
+        header .icon-right {
+            font-size: 1.4rem;
+            color: #372614;
+        }
+      header .bod-btm{
+        border-bottom: 1px solid white;
+      }
+        /* Main layout */
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            border-bottom: dashed 1px  #8a2533;
+
+        }
+
+        /* Left Column - Categories */
+        nav {
+            width: 26%;
+            background-color: #8a2533;
+            /* Secondary BG */
+            height: 150vh;
+
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .category-item {
+            padding: 7px 12.2px;
+            font-weight: 500;
+            font-size: 0.65rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.2s;
+            color: #f5f5f5;
+        }
+
+        .category-item:hover {
+            background-color: #6a131c;
+        }
+
+        /* Active category style */
+        .category-item.active {
+            background-color: #852833;
+            /* Primary BG */
+            border: 0px;
+            border-right-color: #852833;
+
+        }
+
+        /* Right Column - Items */
+        main {
+            width: 80%;
+            background-color: #a23749;
+            /* Primary BG */
+            height: auto;
+            /* Adjusted for better visibility */
+            border-left-style:  #a73c4e;
+            background-size: 6px 6px;
+        }
+
+        main ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-left: 1px dashed #841f2d;
+            
+
+        }
+
+        main li {
+            padding: 11px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 0.3px solid rgba(0, 0, 0, 0.1);
+        }
+
+        main li:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            
+        }
+        
+
+        /* Footer */
+        footer {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 4px 25px;
+            height: 20px;
+            /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
+            /* This background helps blend the container edges */
+            background-color:#fee3c5;
+            /* Secondary BG */
+        }
+
+        /* Table badge */
+        .table-badge {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -50px;
+            width: 85px;
+            height: 90px;
+            /* background: linear-gradient(to bottom, #9b3042 60%, #f9ddb8 40%); */
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+        .table-badge span:first-child {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .table-badge span:last-child {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        /* Done button */
+        .done-btn {
+            border-radius: none;
+            border: none;
+        }
+
+        /* .done-btn:hover {
+             background-color: #9b3042; 
+    }*/
+         
+
+        /* Scrollbar styling (optional but nice) */
+        nav::-webkit-scrollbar,
+        main::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        nav::-webkit-scrollbar-thumb,
+        main::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .done-btn1 {
+            float: right;
+            margin-right: -50px;
+            margin-top: -60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+
+        <header>
+            <div class="icons-left">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-utensils"></i>
+                <i class="fa-solid fa-wine-glass"></i>
+            </div>
+            <div class="icon-right">
+                <i class="fa-solid fa-search"></i>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <nav>
+                <ul>
+                    <li class="category-item">Thali Items</li>
+                    <li class="category-item active">Chicken (Dry)</li>
+                    <li class="category-item">Chicken (Gravy)</li>
+                    <li class="category-item">Tandoori Items</li>
+                    <li class="category-item">Mutton (Dry)</li>
+                    <li class="category-item">Mutton (Gravy)</li>
+                    <li class="category-item">Biryani & Rice</li>
+                    <li class="category-item">Fried Rice</li>
+                    <li class="category-item">Soup</li>
+                    <li class="category-item">Noodles</li>
+                    <li class="category-item">Eggs</li>
+                    <li class="category-item">Fish (Dry)</li>
+                    <li class="category-item" style="opacity:0.3">Fish (Gravy)</li>
+                </ul>
+            </nav>
+
+            <main>
+                <ul>
+                    <li>Empire Chicken Kebab</li>
+                    <li>Chicken Manchurian</li>
+                    <li>Chilly Chicken</li>
+                    <li>Chilly Lollypop</li>
+                    <li>Chilly 65</li>
+                    <li>Pepper Chicken</li>
+                    <li>Chicken Lemon</li>
+                    <li>Garlic Chicken</li>
+                    <li>Chicken Tomato Fry</li>
+                    <li style="opacity:0.3">Chicken Kheema</li>
+                </ul>
+                <!-- <button class="done-btn" style ="float:right;"> <img src="./Assets/done button-Photoroom.png" alt="" ></button> -->
+
+
+            </main>
+        </div>
+
+        <footer>
+            <div class="table-badge">
+                <a href="#">
+                    <image src="./Assets/tabel button-Photoroom.png" alt="tabel button" style="transform: scale(0.6); width:170px;height: 150px;padding-bottom: 20px;">
+                </a>
+            </div>
+            <div class="done-btn1">
+                <a href="#">
+                    <image src="./Assets/done button-Photoroom.png" alt="done button" style=" width:135px;height:125px;">
+                </a>
+            </div>
+
+
+        </footer>
+    </div>
+</body>
+
+</html>
